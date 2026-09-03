@@ -4,14 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-use Illuminate\Support\Str;
-
 class Registration extends Model
 {
-    // di Registration.php
-    protected $fillable = ['unit_id', 'competition_id', 'status', 'payment_status'];
+    protected $fillable = [
+        'unit_id',
+        'competition_id',
+        'status',
+        'payment_status',
+        'payment_type',
+        'amount_paid',
+        'registration_code',
+    ];
 
-    public function uploads() {
+    protected $casts = [
+        'amount_paid' => 'decimal:2',
+    ];
+
+    public function uploads()
+    {
         return $this->hasMany(Upload::class);
     }
 
@@ -28,12 +38,5 @@ class Registration extends Model
     public function competition()
     {
         return $this->belongsTo(Competition::class);
-    }
-    
-    protected static function booted()
-    {
-        static::creating(function ($registration) {
-            $registration->registration_code = strtoupper(Str::random(8));
-        });
     }
 }

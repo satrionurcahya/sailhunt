@@ -839,11 +839,10 @@
 
 
         {{-- =====================================================
-             COMPETITION STATUS
-             ===================================================== --}}
-
+            COMPETITION STATUS
+            ===================================================== --}}
         <section class="rs-card"
-                 aria-labelledby="competitionStatusTitle">
+                aria-labelledby="competitionStatusTitle">
 
             <div class="rs-card-header">
 
@@ -857,7 +856,6 @@
                     Status Lomba & Pembayaran
 
                 </h2>
-
 
                 @if($registrations->count() > 0)
 
@@ -893,7 +891,7 @@
                         </p>
 
                         <a href="{{ route('dashboard') }}"
-                           class="btn btn-primary btn-sm">
+                        class="btn btn-primary btn-sm">
 
                             <i class="fas fa-plus mr-1"></i>
 
@@ -933,6 +931,10 @@
                                         Pembayaran
                                     </th>
 
+                                    <th>
+                                        Kartu
+                                    </th>
+
                                 </tr>
 
                             </thead>
@@ -945,21 +947,27 @@
                                     <tr>
 
                                         <td class="rs-index">
+
                                             {{ $index + 1 }}
+
                                         </td>
 
 
                                         <td>
 
                                             <span class="rs-competition-name">
+
                                                 {{ $reg->competition->name }}
+
                                             </span>
 
                                         </td>
 
 
                                         <td>
+
                                             {!! $reg->competition->category_badge !!}
+
                                         </td>
 
 
@@ -1024,6 +1032,40 @@
 
                                         </td>
 
+
+                                        {{-- =================================================
+                                            KARTU PESERTA
+                                            ================================================= --}}
+                                        <td>
+
+                                            @if($reg->registration_code)
+
+                                                <a href="{{ route(
+                                                    'participant-cards.show',
+                                                    $reg->registration_code
+                                                ) }}"
+                                                class="btn btn-sm btn-outline-primary"
+                                                target="_blank"
+                                                rel="noopener noreferrer">
+
+                                                    <i class="fas fa-id-card mr-1"></i>
+
+                                                    Kartu
+
+                                                </a>
+
+                                            @else
+
+                                                <span class="text-muted">
+
+                                                    Belum tersedia
+
+                                                </span>
+
+                                            @endif
+
+                                        </td>
+
                                     </tr>
 
                                 @endforeach
@@ -1039,7 +1081,6 @@
             </div>
 
         </section>
-
 
         {{-- =====================================================
              BACK TO DASHBOARD

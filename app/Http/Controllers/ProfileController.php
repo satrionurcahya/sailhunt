@@ -168,21 +168,65 @@ class ProfileController extends Controller
             ->with(['competition', 'participants', 'unit'])
             ->findOrFail($registrationId);
 
+        /*
+        |--------------------------------------------------------------------------
+        | DAFTAR ULANG HARUS SUDAH DIVERIFIKASI
+        |--------------------------------------------------------------------------
+        */
         $daftarUlang = Upload::where('unit_id', $unitId)
             ->where('type', 'daftar_ulang')
             ->where('status', 'verified')
             ->first();
 
         if (!$daftarUlang) {
-            return redirect()->route('profile.index')
-                ->with('error', 'Anda harus menyelesaikan daftar ulang dan menunggu verifikasi sebelum dapat mengunduh kartu peserta.');
+            return redirect()
+                ->route('profile.index')
+                ->with(
+                    'error',
+                    'Anda harus menyelesaikan daftar ulang dan menunggu verifikasi sebelum dapat mengunduh kartu peserta.'
+                );
         }
 
-        if (!in_array($registration->payment_status, ['paid', 'verified'])) {
-            return redirect()->route('status.index')
-                ->with('error', 'Pembayaran belum lunas, kartu peserta belum dapat diunduh.');
+        /*
+        |--------------------------------------------------------------------------
+        | PEMBAYARAN HARUS SUDAH DIBAYAR / DIVERIFIKASI
+        |--------------------------------------------------------------------------
+        */
+        if (!in_array($registration->payment_status, ['paid', 'verified'], true)) {
+            return redirect()
+                ->route('status.index')
+                ->with(
+                    'error',
+                    'Pembayaran belum lunas, kartu peserta belum dapat diunduh.'
+                );
         }
 
-        return view('dashboard.card', compact('registration'));
+        /*
+        |--------------------------------------------------------------------------
+        | REGISTRATION CODE WAJIB ADA
+        |--------------------------------------------------------------------------
+        */
+        if (!$registration->registration_code) {
+            return redirect()
+                ->route('status.index')
+                ->with(
+                    'error',
+                    'Kode peserta belum tersedia.'
+                );
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | GUNAKAN KARTU PESERTA BARU
+        |--------------------------------------------------------------------------
+        |
+        | Tidak lagi menggunakan:
+        | dashboard.card
+        |
+        */
+        return view(
+            'dashboard.kartu-peserta.show',
+            compact('registration')
+        );
     }
 }

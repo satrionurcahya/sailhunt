@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use App\Services\RegistrationCodeService;
 
 class Unit extends Model
 {
@@ -59,13 +60,22 @@ class Unit extends Model
     // ============================================================
     public function autoRegisterGPS()
     {
-        $gps = \App\Models\Competition::where('name', 'Gerakan Pungut Sampah (GPS)')->first();
+        $gps = \App\Models\Competition::where(
+            'name',
+            'Gerakan Pungut Sampah (GPS)'
+        )->first();
 
-        if ($gps && !$this->registrations()->where('competition_id', $gps->id)->exists()) {
-            $this->registrations()->create([
-                'competition_id'  => $gps->id,
-                'status'          => 'confirmed',
-                'payment_status'  => 'verified',
+        if (
+            $gps &&
+            !$this->registrations()
+                ->where('competition_id', $gps->id)
+                ->exists()
+        ) {
+            app(RegistrationCodeService::class)->create([
+                'unit_id'        => $this->id,
+                'competition_id' => $gps->id,
+                'status'         => 'confirmed',
+                'payment_status' => 'verified',
             ]);
         }
     }
