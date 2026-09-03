@@ -1,0 +1,472 @@
+/* =========================================================
+   Sail & Hunt Chapter I
+   File : assets/css/components.css
+   ========================================================= */
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .55rem;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--radius-round);
+    padding: .8rem 1.5rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: .92rem;
+    transition: var(--normal);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.btn i { font-size: .9rem; }
+
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+.btn-primary {
+    color: #fff;
+    background: var(--grad-orange);
+    box-shadow: 0 8px 22px rgba(231, 138, 26, .30);
+}
+
+.btn-primary:hover { box-shadow: 0 14px 32px rgba(231, 138, 26, .40); }
+
+.btn-secondary {
+    background: #fff;
+    color: var(--az);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover { border-color: var(--az); }
+
+.btn-outline {
+    background: transparent;
+    color: var(--az);
+    border: 2px solid var(--az);
+}
+
+.btn-outline:hover {
+    background: var(--az);
+    color: #fff;
+}
+
+.btn-success {
+    color: #fff;
+    background: var(--grad-success);
+}
+
+.btn-danger {
+    color: #fff;
+    background: var(--grad-danger);
+}
+
+.btn-sm {
+    padding: .55rem 1rem;
+    font-size: .82rem;
+}
+
+.btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+}
+
+.btn-block { width: 100%; }
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.card {
+    background: #fff;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: var(--normal);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.card-body { padding: 1.5rem; }
+
+.card-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+/* =========================================================
+   BADGE
+   ========================================================= */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    padding: .32rem .8rem;
+    border-radius: 999px;
+    font-size: .72rem;
+    font-weight: 700;
+}
+
+.badge-primary {
+    background: var(--azP);
+    color: var(--azD);
+}
+
+.badge-success {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+.badge-warning {
+    background: var(--warning-light);
+    color: var(--warning);
+}
+
+.badge-danger {
+    background: var(--danger-light);
+    color: var(--danger);
+}
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.form-group { margin-bottom: 1.25rem; }
+
+.form-label {
+    display: block;
+    margin-bottom: .45rem;
+    font-size: .85rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.required { color: var(--danger); }
+
+.form-control {
+    width: 100%;
+    padding: .85rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: var(--fast);
+    background: #fff;
+}
+
+.form-control:focus {
+    border-color: var(--az);
+    box-shadow: 0 0 0 4px rgba(58, 155, 240, .15);
+}
+
+.form-help {
+    margin-top: .35rem;
+    font-size: .75rem;
+    color: var(--text-muted);
+}
+
+.form-error {
+    margin-top: .35rem;
+    color: var(--danger);
+    font-size: .75rem;
+}
+
+/* =========================================================
+   CHECKBOX
+   ========================================================= */
+
+.checkbox {
+    display: flex;
+    gap: .7rem;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.checkbox input { margin-top: 3px; }
+
+/* =========================================================
+   RADIO CARD
+   ========================================================= */
+
+.radio-card {
+    border: 2px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.radio-card:hover { border-color: var(--az); }
+
+.radio-card.active {
+    border-color: var(--az);
+    background: var(--azG);
+}
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.table {
+    width: 100%;
+    background: #fff;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.table thead { background: var(--grad-primary); }
+
+.table th {
+    color: #fff;
+    text-align: left;
+    padding: 1rem;
+    font-size: .82rem;
+}
+
+.table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.table tbody tr:hover { background: var(--gray-100); }
+
+/* =========================================================
+   ALERT
+   ========================================================= */
+
+.alert {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+}
+
+.alert-success {
+    background: var(--success-light);
+    border-left: 4px solid var(--success);
+}
+
+.alert-warning {
+    background: var(--warning-light);
+    border-left: 4px solid var(--warning);
+}
+
+.alert-danger {
+    background: var(--danger-light);
+    border-left: 4px solid var(--danger);
+}
+
+.alert-info {
+    background: var(--info-light);
+    border-left: 4px solid var(--info);
+}
+
+/* =========================================================
+   ACCORDION
+   ========================================================= */
+
+.accordion {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.accordion-header {
+    padding: 1rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background: #fff;
+}
+
+.accordion-body {
+    display: none;
+    padding: 1.2rem;
+    border-top: 1px solid var(--border);
+}
+
+.accordion.active .accordion-body { display: block; }
+
+/* =========================================================
+   UPLOAD
+   ========================================================= */
+
+.upload-zone {
+    border: 2px dashed var(--border);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    text-align: center;
+    transition: .25s;
+    cursor: pointer;
+}
+
+.upload-zone:hover {
+    border-color: var(--az);
+    background: var(--azG);
+}
+
+.upload-zone i {
+    font-size: 2rem;
+    color: var(--az);
+    margin-bottom: .75rem;
+}
+
+/* =========================================================
+   STEP WIZARD
+   ========================================================= */
+
+.stepper {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 55%;
+    width: 90%;
+    height: 2px;
+    background: var(--border);
+}
+
+.step-number {
+    width: 38px;
+    height: 38px;
+    margin: auto;
+    border-radius: 50%;
+    background: var(--gray-300);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.step.active .step-number { background: var(--az); }
+.step.completed .step-number { background: var(--success); }
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal.show { display: flex; }
+
+.modal-content {
+    width: min(550px, 95%);
+    background: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    animation: modalIn .25s;
+}
+
+.modal-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.modal-body { padding: 1.5rem; }
+
+.modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: flex-end;
+    gap: .75rem;
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    min-width: 280px;
+    background: var(--azD);
+    color: #fff;
+    padding: 1rem 1.2rem;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    box-shadow: var(--shadow-xl);
+    transform: translateY(120px);
+    opacity: 0;
+    transition: .35s;
+    z-index: 3000;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   LOADER
+   ========================================================= */
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--gray-300);
+    border-top-color: var(--az);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}

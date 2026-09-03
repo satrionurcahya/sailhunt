@@ -1,0 +1,1593 @@
+/* =========================================================
+   STATUS PENDAFTARAN – Sail & Hunt Theme
+   ========================================================= */
+
+.registration-status-page {
+    --rs-primary: #1872B5;
+    --rs-primary-dark: #0D4A85;
+    --rs-primary-soft: #EBF5FF;
+
+    --rs-success: #38A169;
+    --rs-success-soft: #E3F9E5;
+
+    --rs-warning: #D69E2E;
+    --rs-warning-soft: #FFF8DB;
+
+    --rs-danger: #E53E3E;
+    --rs-danger-soft: #FFE3E3;
+
+    --rs-info: #0B5DAA;
+    --rs-info-soft: #EAF5FF;
+
+    --rs-text: #151528;
+    --rs-muted: #717190;
+
+    --rs-border: rgba(24, 114, 181, .10);
+
+    --rs-surface: #FFFFFF;
+    --rs-bg: #F0F2F8;
+
+    --rs-radius: 18px;
+
+    color: var(--rs-text);
+    background: transparent;
+}
+
+.registration-status-page * {
+    box-sizing: border-box;
+}
+
+.registration-status-page .rs-container {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.registration-status-page .rs-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 30px;
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(24, 114, 181, .18);
+    border-radius: var(--rs-radius);
+
+    background:
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(24, 114, 181, .10),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #EBF5FF 0%,
+            #fff 62%,
+            #F0F2F8 100%
+        );
+
+    box-shadow: 0 10px 30px rgba(15, 23, 42, .05);
+}
+
+.registration-status-page .rs-hero::after {
+    content: "";
+
+    position: absolute;
+    right: -60px;
+    bottom: -80px;
+
+    width: 190px;
+    height: 190px;
+
+    border: 30px solid rgba(24, 114, 181, .05);
+    border-radius: 50%;
+}
+
+.registration-status-page .rs-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-bottom: 8px;
+
+    color: var(--rs-primary);
+
+    font-size: .74rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.registration-status-page .rs-hero h1 {
+    position: relative;
+    z-index: 1;
+
+    margin: 0 0 7px;
+
+    color: var(--rs-text);
+
+    font-size: clamp(1.65rem, 3vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -.035em;
+    line-height: 1.2;
+}
+
+.registration-status-page .rs-hero p {
+    position: relative;
+    z-index: 1;
+
+    max-width: 680px;
+    margin: 0;
+
+    color: var(--rs-muted);
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   ALERTS
+   ========================================================= */
+
+.registration-status-page .rs-alert {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    padding: 14px 48px 14px 16px;
+    margin-bottom: 16px;
+
+    border: 1px solid transparent;
+    border-radius: 13px;
+}
+
+.registration-status-page .rs-alert-icon {
+    flex: 0 0 34px;
+
+    width: 34px;
+    height: 34px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+}
+
+.registration-status-page .rs-alert-content {
+    min-width: 0;
+    line-height: 1.55;
+}
+
+.registration-status-page .rs-alert-success {
+    color: #166534;
+    background: var(--rs-success-soft);
+    border-color: #bbf7d0;
+}
+
+.registration-status-page .rs-alert-success .rs-alert-icon {
+    color: #15803d;
+    background: #dcfce7;
+}
+
+.registration-status-page .rs-alert-danger {
+    color: #991b1b;
+    background: var(--rs-danger-soft);
+    border-color: #fecaca;
+}
+
+.registration-status-page .rs-alert-danger .rs-alert-icon {
+    color: #dc2626;
+    background: #fee2e2;
+}
+
+.registration-status-page .rs-alert-info {
+    color: #164e63;
+    background: var(--rs-info-soft);
+    border-color: #a5f3fc;
+}
+
+.registration-status-page .rs-alert-info .rs-alert-icon {
+    color: #0891b2;
+    background: #cffafe;
+}
+
+.registration-status-page .rs-alert .close {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    width: 32px;
+    height: 32px;
+
+    padding: 0;
+    margin: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid currentColor;
+    border-radius: 50%;
+
+    color: inherit;
+    background: rgba(255, 255, 255, .45);
+
+    opacity: .8;
+
+    font-size: 1.2rem;
+    line-height: 1;
+
+    text-shadow: none;
+
+    transition: .15s ease;
+}
+
+.registration-status-page .rs-alert .close:hover,
+.registration-status-page .rs-alert .close:focus {
+    opacity: 1;
+    background: #fff;
+    outline: none;
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.registration-status-page .rs-card {
+    margin-bottom: 20px;
+
+    border: 1px solid var(--rs-border);
+    border-radius: var(--rs-radius);
+
+    background: var(--rs-surface);
+
+    box-shadow: 0 7px 24px rgba(15, 23, 42, .045);
+
+    overflow: hidden;
+}
+
+.registration-status-page .rs-card-header {
+    min-height: 68px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+    padding: 16px 20px;
+
+    border-bottom: 1px solid var(--rs-border);
+
+    background: #fff;
+}
+
+.registration-status-page .rs-card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    min-width: 0;
+    margin: 0;
+
+    font-size: 1.02rem;
+    font-weight: 750;
+    letter-spacing: -.01em;
+}
+
+.registration-status-page .rs-title-icon {
+    flex: 0 0 36px;
+
+    width: 36px;
+    height: 36px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    color: var(--rs-primary);
+    background: var(--rs-primary-soft);
+}
+
+.registration-status-page .rs-card-body {
+    padding: 20px;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+.registration-status-page .rs-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 6px 10px;
+
+    border: 1px solid transparent;
+    border-radius: 999px;
+
+    font-size: .76rem;
+    font-weight: 750;
+
+    white-space: nowrap;
+}
+
+.registration-status-page .rs-status-success {
+    color: #166534;
+    background: var(--rs-success-soft);
+    border-color: #bbf7d0;
+}
+
+.registration-status-page .rs-status-warning {
+    color: #92400e;
+    background: var(--rs-warning-soft);
+    border-color: #f6d98b;
+}
+
+.registration-status-page .rs-status-danger {
+    color: #991b1b;
+    background: var(--rs-danger-soft);
+    border-color: #fecaca;
+}
+
+.registration-status-page .rs-status-info {
+    color: #0B5DAA;
+    background: var(--rs-info-soft);
+    border-color: rgba(11, 93, 170, .20);
+}
+
+.registration-status-page .rs-status-muted {
+    color: #717190;
+    background: #F0F2F8;
+    border-color: var(--rs-border);
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.registration-status-page .rs-progress {
+    padding: 22px 20px 20px;
+}
+
+.registration-status-page .rs-progress-track {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+}
+
+.registration-status-page .rs-progress-line {
+    position: absolute;
+
+    top: 25px;
+    left: 16.5%;
+    right: 16.5%;
+
+    height: 3px;
+
+    border-radius: 99px;
+
+    background: rgba(24, 114, 181, .12);
+}
+
+.registration-status-page .rs-step {
+    position: relative;
+    z-index: 1;
+
+    text-align: center;
+}
+
+.registration-status-page .rs-step-icon {
+    width: 50px;
+    height: 50px;
+
+    margin: 0 auto 10px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 4px solid #fff;
+    border-radius: 50%;
+
+    box-shadow: 0 4px 15px rgba(15, 23, 42, .10);
+
+    font-size: 1rem;
+}
+
+.registration-status-page .rs-step-success .rs-step-icon {
+    color: #fff;
+    background: var(--rs-success);
+}
+
+.registration-status-page .rs-step-warning .rs-step-icon {
+    color: #fff;
+    background: #E88A1A;
+}
+
+.registration-status-page .rs-step-danger .rs-step-icon {
+    color: #fff;
+    background: var(--rs-danger);
+}
+
+.registration-status-page .rs-step-muted .rs-step-icon {
+    color: var(--rs-muted);
+    background: #E8EAF1;
+}
+
+.registration-status-page .rs-step-label {
+    margin-bottom: 2px;
+
+    color: var(--rs-muted);
+
+    font-size: .7rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.registration-status-page .rs-step-title {
+    margin: 0;
+
+    color: var(--rs-text);
+
+    font-size: .9rem;
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   ACCOUNT STATUS
+   ========================================================= */
+
+.registration-status-page .rs-account-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+}
+
+.registration-status-page .rs-info-item {
+    min-height: 90px;
+
+    padding: 15px;
+
+    border: 1px solid var(--rs-border);
+    border-radius: 13px;
+
+    background: #fff;
+}
+
+.registration-status-page .rs-info-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--rs-muted);
+
+    font-size: .72rem;
+    font-weight: 750;
+
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.registration-status-page .rs-info-value {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    color: var(--rs-text);
+
+    font-weight: 700;
+}
+
+.registration-status-page .rs-file-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    color: var(--rs-primary);
+
+    font-size: .82rem;
+    font-weight: 650;
+
+    text-decoration: none;
+}
+
+.registration-status-page .rs-file-link:hover {
+    color: var(--rs-primary-dark);
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   PAYMENT
+   ========================================================= */
+
+.registration-status-page .rs-payment-header {
+    color: #fff;
+
+    background: linear-gradient(
+        135deg,
+        #1872B5,
+        #0D4A85
+    );
+
+    border-bottom-color: rgba(255, 255, 255, .12);
+}
+
+.registration-status-page .rs-payment-header .rs-title-icon {
+    color: #0D4A85;
+    background: #fff;
+}
+
+.registration-status-page .rs-payment-header .rs-card-title {
+    color: #fff;
+}
+
+.registration-status-page .rs-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 6px 10px;
+
+    border-radius: 999px;
+
+    color: #0D4A85;
+    background: #fff;
+
+    font-size: .76rem;
+    font-weight: 750;
+
+    white-space: nowrap;
+}
+
+.registration-status-page .rs-payment-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(320px, .85fr);
+
+    gap: 20px;
+}
+
+.registration-status-page .rs-total-box {
+    padding: 20px;
+    margin-bottom: 18px;
+
+    border: 1px solid rgba(24, 114, 181, .20);
+    border-radius: 15px;
+
+    background:
+        radial-gradient(
+            circle at 100% 0,
+            rgba(24, 114, 181, .09),
+            transparent 30%
+        ),
+        #EBF5FF;
+}
+
+.registration-status-page .rs-total-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--rs-muted);
+
+    font-size: .78rem;
+    font-weight: 750;
+
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.registration-status-page .rs-total-amount {
+    margin: 0;
+
+    color: #0D4A85;
+
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    font-weight: 850;
+
+    letter-spacing: -.04em;
+    line-height: 1.1;
+}
+
+.registration-status-page .rs-terbilang {
+    margin: 8px 0 0;
+
+    color: var(--rs-muted);
+
+    font-size: .88rem;
+    line-height: 1.55;
+}
+
+.registration-status-page .rs-subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin: 0 0 10px;
+
+    font-size: .94rem;
+    font-weight: 750;
+}
+
+.registration-status-page .rs-subtitle small {
+    color: var(--rs-muted);
+    font-weight: 650;
+}
+
+.registration-status-page .rs-fee-list {
+    border: 1px solid var(--rs-border);
+    border-radius: 13px;
+
+    overflow: hidden;
+}
+
+.registration-status-page .rs-fee-row {
+    min-height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 14px;
+    padding: 11px 14px;
+
+    border-bottom: 1px solid var(--rs-border);
+
+    background: #fff;
+}
+
+.registration-status-page .rs-fee-row:last-child {
+    border-bottom: 0;
+}
+
+.registration-status-page .rs-fee-name {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    min-width: 0;
+
+    color: var(--rs-text);
+
+    font-size: .86rem;
+}
+
+.registration-status-page .rs-fee-name i {
+    color: var(--rs-muted);
+}
+
+.registration-status-page .rs-fee-price {
+    flex: 0 0 auto;
+
+    color: #0D4A85;
+
+    font-size: .82rem;
+    font-weight: 750;
+
+    white-space: nowrap;
+}
+
+.registration-status-page .rs-fee-total {
+    background: #F0F2F8;
+}
+
+.registration-status-page .rs-method-title {
+    margin: 0 0 10px;
+
+    color: var(--rs-text);
+
+    font-size: .94rem;
+    font-weight: 750;
+}
+
+.registration-status-page .rs-method-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.registration-status-page .rs-method {
+    min-width: 0;
+
+    padding: 13px;
+
+    border: 1px solid var(--rs-border);
+    border-radius: 14px;
+
+    background: #fff;
+
+    transition: .18s ease;
+}
+
+.registration-status-page .rs-method:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(24, 114, 181, .25);
+
+    box-shadow:
+        0 9px 24px rgba(13, 74, 133, .08);
+}
+
+.registration-status-page .rs-method-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    margin-bottom: 9px;
+
+    color: var(--rs-text);
+
+    font-size: .82rem;
+    font-weight: 750;
+}
+
+.registration-status-page .rs-bank-box {
+    padding: 10px;
+
+    border: 1px solid var(--rs-border);
+    border-radius: 10px;
+
+    background: #F0F2F8;
+
+    text-align: center;
+}
+
+.registration-status-page .rs-bank-label {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--rs-muted);
+
+    font-size: .68rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+.registration-status-page .rs-account-number {
+    display: block;
+
+    color: var(--rs-text);
+
+    font-size: .88rem;
+    letter-spacing: .03em;
+
+    overflow-wrap: anywhere;
+}
+
+.registration-status-page .rs-copy-btn {
+    margin-top: 8px;
+}
+
+.registration-status-page .rs-owner {
+    margin: 8px 0 0;
+
+    color: var(--rs-muted);
+
+    font-size: .72rem;
+
+    text-align: center;
+}
+
+.registration-status-page .rs-bank-badge {
+    display: block;
+
+    width: fit-content;
+
+    margin: 6px auto 0;
+}
+
+
+/* =========================================================
+   QRIS THUMBNAIL
+   ========================================================= */
+
+.registration-status-page .rs-qris-wrap {
+    width: 100%;
+    min-height: 145px;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    text-align: center;
+}
+
+.registration-status-page .rs-qris-button {
+    width: 112px;
+    height: 112px;
+
+    padding: 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--rs-border);
+    border-radius: 10px;
+
+    background: #fff;
+
+    cursor: pointer;
+
+    transition: .18s ease;
+}
+
+.registration-status-page .rs-qris-button:hover,
+.registration-status-page .rs-qris-button:focus {
+    border-color: rgba(24, 114, 181, .30);
+
+    box-shadow:
+        0 0 0 4px rgba(24, 114, 181, .08);
+
+    outline: none;
+
+    transform: translateY(-1px);
+}
+
+.registration-status-page .rs-qris-button img {
+    display: block;
+
+    width: 100px;
+    height: 100px;
+
+    object-fit: contain;
+
+    border-radius: 5px;
+}
+
+.registration-status-page .rs-qris-hint {
+    margin: 6px 0 0;
+
+    color: var(--rs-muted);
+
+    font-size: .72rem;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   UPLOAD CTA
+   ========================================================= */
+
+.registration-status-page .rs-upload-box {
+    padding: 16px;
+
+    border: 1px solid rgba(24, 114, 181, .20);
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8fbff 0%,
+            #fff 100%
+        );
+}
+
+.registration-status-page .rs-upload-title {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin: 0 0 5px;
+
+    color: #0D4A85;
+
+    font-size: .94rem;
+    font-weight: 800;
+}
+
+.registration-status-page .rs-upload-text {
+    margin: 0 0 13px;
+
+    color: var(--rs-muted);
+
+    font-size: .8rem;
+    line-height: 1.55;
+}
+
+.registration-status-page .rs-upload-btn {
+    min-height: 44px;
+
+    border-radius: 10px;
+
+    font-weight: 750;
+}
+
+.registration-status-page .rs-help {
+    margin-top: 15px;
+    padding-top: 14px;
+
+    border-top: 1px solid var(--rs-border);
+}
+
+.registration-status-page .rs-help-title {
+    margin: 0 0 9px;
+
+    color: var(--rs-muted);
+
+    font-size: .75rem;
+    font-weight: 750;
+
+    text-align: center;
+}
+
+.registration-status-page .rs-help-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 8px;
+}
+
+.registration-status-page .rs-help-grid .btn {
+    min-height: 38px;
+
+    font-size: .76rem;
+}
+
+
+/* =========================================================
+   EMPTY / PAID STATE
+   ========================================================= */
+
+.registration-status-page .rs-success-state {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 17px;
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(56, 161, 105, .25);
+    border-radius: 15px;
+
+    background: var(--rs-success-soft);
+
+    color: #276749;
+}
+
+.registration-status-page .rs-success-icon {
+    flex: 0 0 42px;
+
+    width: 42px;
+    height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(56, 161, 105, .12);
+
+    color: var(--rs-success);
+
+    font-size: 1.1rem;
+}
+
+.registration-status-page .rs-success-state strong {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #276749;
+}
+
+.registration-status-page .rs-success-state span {
+    font-size: .8rem;
+
+    color: #4d7c5c;
+}
+
+
+/* =========================================================
+   COMPETITION TABLE
+   ========================================================= */
+
+.registration-status-page .rs-table-wrap {
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+.registration-status-page .rs-table {
+    width: 100%;
+
+    margin: 0;
+
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.registration-status-page .rs-table thead th {
+    padding: 12px 14px;
+
+    border: 0;
+    border-bottom: 1px solid var(--rs-border);
+
+    background: #F0F2F8;
+
+    color: var(--rs-muted);
+
+    font-size: .68rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: .06em;
+
+    white-space: nowrap;
+}
+
+.registration-status-page .rs-table tbody td {
+    padding: 14px;
+
+    border-bottom: 1px solid rgba(24, 114, 181, .06);
+
+    vertical-align: middle;
+
+    color: var(--rs-text);
+
+    font-size: .84rem;
+
+    /* Isi tabel rata tengah */
+    text-align: center;
+}
+
+.registration-status-page .rs-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.registration-status-page .rs-table tbody tr:hover {
+    background: #F8FBFF;
+}
+
+.registration-status-page .rs-index {
+    color: var(--rs-muted);
+
+    font-weight: 700;
+}
+
+.registration-status-page .rs-competition-name {
+    color: var(--rs-text);
+
+    font-weight: 750;
+}
+
+.registration-status-page .rs-empty {
+    padding: 45px 20px;
+
+    text-align: center;
+}
+
+.registration-status-page .rs-empty-icon {
+    width: 60px;
+    height: 60px;
+
+    margin: 0 auto 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    color: var(--rs-muted);
+    background: #F0F2F8;
+
+    font-size: 1.35rem;
+}
+
+.registration-status-page .rs-empty h4 {
+    margin-bottom: 5px;
+
+    color: var(--rs-text);
+
+    font-size: 1rem;
+    font-weight: 750;
+}
+
+.registration-status-page .rs-empty p {
+    max-width: 460px;
+
+    margin: 0 auto 15px;
+
+    color: var(--rs-muted);
+
+    font-size: .8rem;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   BOTTOM NAVIGATION
+   ========================================================= */
+
+.registration-status-page .rs-bottom-nav {
+    display: flex;
+    justify-content: center;
+
+    padding: 4px 0 10px;
+}
+
+.registration-status-page .rs-back-btn {
+    min-height: 42px;
+
+    padding: 0 18px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   MODALS
+========================================================= */
+
+#batchPaymentModal {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+#batchPaymentModal .modal-dialog {
+    position: relative;
+    width: calc(100% - 30px) !important;
+    max-width: 700px !important;
+    margin: 1.75rem auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+}
+
+#batchPaymentModal .modal-content {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#qrisModal {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+#qrisModal .modal-dialog {
+    position: relative;
+    width: calc(100% - 30px) !important;
+    max-width: 720px !important;
+    margin: 1rem auto !important;
+    transform: none !important;
+}
+
+#batchPaymentModal .modal-content,
+#qrisModal .modal-content {
+    width: 100%;
+    margin: 0 auto;
+
+    border: 0;
+    border-radius: 18px;
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 70px rgba(15, 23, 42, .28);
+}
+
+#batchPaymentModal .modal-header,
+#qrisModal .modal-header {
+    min-height: 66px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 14px 20px;
+
+    border-bottom: 1px solid var(--rs-border);
+
+    background: linear-gradient(
+        135deg,
+        #1872B5,
+        #0D4A85
+    );
+
+    color: #fff;
+}
+
+#batchPaymentModal .modal-title,
+#qrisModal .modal-title {
+    margin: 0;
+
+    font-size: 1.02rem;
+    font-weight: 800;
+}
+
+#batchPaymentModal .modal-header .close,
+#qrisModal .modal-header .close {
+    flex: 0 0 38px;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+    margin: 0 0 0 auto;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, .65);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .12);
+
+    color: #fff !important;
+
+    opacity: 1 !important;
+
+    font-size: 1.55rem;
+    font-weight: 400;
+    line-height: 1;
+
+    text-shadow: none;
+
+    transition: .15s ease;
+}
+
+#batchPaymentModal .modal-header .close:hover,
+#batchPaymentModal .modal-header .close:focus,
+#qrisModal .modal-header .close:hover,
+#qrisModal .modal-header .close:focus {
+    color: #0D4A85 !important;
+
+    background: #fff;
+
+    border-color: #fff;
+
+    outline: none;
+}
+
+#batchPaymentModal .modal-header .close span,
+#qrisModal .modal-header .close span {
+    line-height: 1;
+    transform: translateY(-1px);
+}
+
+#batchPaymentModal .modal-body {
+    padding: 22px;
+    background: #fff;
+}
+
+#qrisModal .modal-body {
+    padding: 18px;
+
+    background: #F0F2F8;
+
+    text-align: center;
+}
+
+#qrisModal .qris-large-image {
+    display: block;
+
+    width: auto;
+    max-width: 100%;
+    max-height: calc(100vh - 170px);
+
+    margin: 0 auto;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+
+    background: #fff;
+}
+
+.registration-status-page .rs-modal-total {
+    padding: 14px 15px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(24, 114, 181, .20);
+
+    border-radius: 12px;
+
+    background: #EBF5FF;
+}
+
+.registration-status-page .rs-modal-total-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+#batchPaymentModal label {
+    color: var(--rs-text);
+
+    font-size: .83rem;
+    font-weight: 750;
+}
+
+#batchPaymentModal .form-control {
+    min-height: 44px;
+
+    border-color: rgba(24, 114, 181, .16);
+
+    border-radius: 9px;
+}
+
+#batchPaymentModal .form-control:focus {
+    border-color: rgba(24, 114, 181, .40);
+
+    box-shadow:
+        0 0 0 .2rem rgba(24, 114, 181, .12);
+}
+
+#batchPaymentModal .custom-file,
+#batchPaymentModal .custom-file-input,
+#batchPaymentModal .custom-file-label {
+    height: 46px;
+}
+
+#batchPaymentModal .custom-file-label {
+    display: flex;
+    align-items: center;
+
+    border-color: rgba(24, 114, 181, .16);
+
+    border-radius: 9px;
+
+    color: var(--rs-muted);
+}
+
+#batchPaymentModal .custom-file-label::after {
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+
+    background: #F0F2F8;
+
+    border-left-color: rgba(24, 114, 181, .12);
+}
+
+#batchPaymentModal #filePreview {
+    border-radius: 12px;
+}
+
+#batchPaymentModal .modal-footer,
+#qrisModal .modal-footer {
+    padding: 13px 20px;
+
+    border-top: 1px solid var(--rs-border);
+
+    background: #F0F2F8;
+}
+
+#batchPaymentModal .modal-footer .btn,
+#qrisModal .modal-footer .btn {
+    min-height: 40px;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+    .registration-status-page .rs-payment-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 767.98px) {
+
+    .registration-status-page {
+        padding-top: 125px !important;
+    }
+
+    .registration-status-page .rs-container {
+        width: min(100% - 22px, 680px);
+    }
+
+    .registration-status-page .rs-hero {
+        padding: 22px 18px;
+    }
+
+    .registration-status-page .rs-card-header {
+        padding: 14px 16px;
+    }
+
+    .registration-status-page .rs-card-body {
+        padding: 16px;
+    }
+
+    .registration-status-page .rs-progress {
+        padding: 18px 14px;
+    }
+
+    .registration-status-page .rs-account-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-status-page .rs-payment-grid {
+        gap: 16px;
+    }
+
+    .registration-status-page .rs-method-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .registration-status-page .rs-table {
+        min-width: 650px;
+    }
+
+}
+
+
+@media (max-width: 575.98px) {
+
+    .registration-status-page {
+        padding-top: 105px !important;
+        padding-bottom: 45px !important;
+    }
+
+    .registration-status-page .rs-hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .registration-status-page .rs-progress-track {
+        grid-template-columns: 1fr;
+        gap: 11px;
+    }
+
+    .registration-status-page .rs-progress-line {
+        top: 25px;
+        bottom: 25px;
+
+        left: 25px;
+        right: auto;
+
+        width: 3px;
+        height: auto;
+    }
+
+    .registration-status-page .rs-step {
+        display: flex;
+        align-items: center;
+
+        gap: 12px;
+
+        text-align: left;
+    }
+
+    .registration-status-page .rs-step-icon {
+        flex: 0 0 50px;
+
+        margin: 0;
+    }
+
+    .registration-status-page .rs-step-copy {
+        flex: 1;
+    }
+
+    .registration-status-page .rs-method-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-status-page .rs-help-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-status-page .rs-fee-row {
+        align-items: flex-start;
+    }
+
+    #batchPaymentModal .modal-dialog,
+    #qrisModal .modal-dialog {
+        max-width: calc(100% - 20px);
+
+        margin: 10px auto;
+    }
+
+    #batchPaymentModal .modal-body,
+    #batchPaymentModal .modal-header,
+    #batchPaymentModal .modal-footer,
+    #qrisModal .modal-header,
+    #qrisModal .modal-footer {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    #qrisModal .qris-large-image {
+        max-height: calc(100vh - 150px);
+    }
+
+    #batchPaymentModal .modal-footer {
+        display: flex;
+
+        gap: 8px;
+    }
+
+    #batchPaymentModal .modal-footer .btn {
+        flex: 1;
+    }
+
+}
+
+/* =========================================================
+   MODAL SCROLL FIX – Agar tombol submit terlihat
+   ========================================================= */
+
+#batchPaymentModal .modal-body {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+#batchPaymentModal .modal-dialog {
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+#batchPaymentModal .modal-content {
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#batchPaymentModal .modal-body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+}
+
+/* Untuk layar kecil */
+@media (max-width: 576px) {
+    #batchPaymentModal .modal-body {
+        max-height: 50vh;
+    }
+}

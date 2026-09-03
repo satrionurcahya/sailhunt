@@ -1,0 +1,904 @@
+/* =========================================================
+   DAFTAR LOMBA — Comprehensive UI/UX
+   Bootstrap 4 compatible and fully scoped to this page.
+   ========================================================= */
+
+.competition-page {
+    --cl-primary: #2563eb;
+    --cl-primary-dark: #1d4ed8;
+    --cl-primary-soft: #eff6ff;
+
+    --cl-success: #16a34a;
+    --cl-success-soft: #f0fdf4;
+
+    --cl-warning: #d97706;
+    --cl-warning-soft: #fffbeb;
+
+    --cl-danger: #dc2626;
+    --cl-danger-soft: #fef2f2;
+
+    --cl-text: #0f172a;
+    --cl-muted: #64748b;
+    --cl-border: #e2e8f0;
+    --cl-bg: #f8fafc;
+
+    --cl-radius: 18px;
+
+    color: var(--cl-text);
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.competition-page.cl-page {
+    padding: 150px 0 80px;
+}
+
+.competition-page * {
+    box-sizing: border-box;
+}
+
+.competition-page .cl-container {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.competition-page .cl-hero {
+    position: relative;
+    overflow: hidden;
+
+    padding: 30px;
+    margin-bottom: 20px;
+
+    border: 1px solid #dbeafe;
+    border-radius: var(--cl-radius);
+
+    background:
+        radial-gradient(
+            circle at 92% 12%,
+            rgba(37, 99, 235, .12),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #eff6ff 0%,
+            #fff 62%,
+            #f8fafc 100%
+        );
+
+    box-shadow: 0 10px 30px rgba(15, 23, 42, .05);
+}
+
+.competition-page .cl-eyebrow {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+    margin-bottom: 8px;
+
+    color: var(--cl-primary);
+
+    font-size: .74rem;
+    font-weight: 800;
+
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.competition-page .cl-hero h1 {
+    position: relative;
+    z-index: 1;
+
+    margin: 0 0 7px;
+
+    font-size: clamp(1.65rem, 3vw, 2.2rem);
+    font-weight: 800;
+
+    letter-spacing: -.035em;
+    line-height: 1.2;
+}
+
+.competition-page .cl-hero p {
+    position: relative;
+    z-index: 1;
+
+    max-width: 760px;
+
+    margin: 0;
+
+    color: var(--cl-muted);
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   ALERTS
+   ========================================================= */
+
+.competition-page .cl-alert {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 14px 48px 14px 16px;
+    margin-bottom: 16px;
+
+    border: 1px solid transparent;
+    border-radius: 13px;
+}
+
+.competition-page .cl-alert-icon {
+    flex: 0 0 34px;
+
+    width: 34px;
+    height: 34px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+}
+
+.competition-page .cl-alert-success {
+    color: #166534;
+
+    background: var(--cl-success-soft);
+
+    border-color: #bbf7d0;
+}
+
+.competition-page .cl-alert-success .cl-alert-icon {
+    color: #15803d;
+    background: #dcfce7;
+}
+
+.competition-page .cl-alert-danger {
+    color: #991b1b;
+
+    background: var(--cl-danger-soft);
+
+    border-color: #fecaca;
+}
+
+.competition-page .cl-alert-danger .cl-alert-icon {
+    color: #dc2626;
+    background: #fee2e2;
+}
+
+.competition-page .cl-alert .close {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    width: 32px;
+    height: 32px;
+
+    padding: 0;
+    margin: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid currentColor;
+    border-radius: 50%;
+
+    color: inherit;
+    background: rgba(255, 255, 255, .45);
+
+    opacity: .8;
+
+    font-size: 1.2rem;
+
+    text-shadow: none;
+
+    transition: .15s ease;
+}
+
+.competition-page .cl-alert .close:hover,
+.competition-page .cl-alert .close:focus {
+    opacity: 1;
+
+    background: #fff;
+
+    outline: none;
+}
+
+
+/* =========================================================
+   LIST SUMMARY
+   ========================================================= */
+
+.competition-page .cl-list-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 14px 16px;
+    margin-bottom: 16px;
+
+    border: 1px solid var(--cl-border);
+    border-radius: 13px;
+
+    background: #fff;
+}
+
+.competition-page .cl-summary-text {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: #475569;
+
+    font-size: .82rem;
+}
+
+.competition-page .cl-summary-text i {
+    color: var(--cl-primary);
+}
+
+.competition-page .cl-summary-badge {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 6px 10px;
+
+    border-radius: 999px;
+
+    color: #1d4ed8;
+    background: var(--cl-primary-soft);
+
+    font-size: .73rem;
+    font-weight: 750;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   COMPETITION CARD
+   ========================================================= */
+
+.competition-page .comp-card-single {
+    margin-bottom: 14px;
+
+    border: 1px solid var(--cl-border);
+    border-radius: var(--cl-radius);
+
+    background: #fff;
+
+    box-shadow: 0 7px 24px rgba(15, 23, 42, .045);
+
+    overflow: hidden;
+
+    transition:
+        border-color .18s ease,
+        box-shadow .18s ease,
+        transform .18s ease;
+}
+
+.competition-page .comp-card-single:hover {
+    border-color: #bfdbfe;
+
+    box-shadow:
+        0 10px 28px rgba(37, 99, 235, .07);
+}
+
+.competition-page .comp-card-single.is-active {
+    border-color: #93c5fd;
+
+    box-shadow:
+        0 10px 30px rgba(37, 99, 235, .09);
+}
+
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.competition-page .card-header-bar {
+    min-height: 76px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 14px 18px;
+
+    background: #fff;
+}
+
+.competition-page .checkbox-label {
+    position: relative;
+
+    flex: 0 0 42px;
+
+    width: 42px;
+    height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+
+    border: 1px solid #dbeafe;
+    border-radius: 11px;
+
+    background: #f8fbff;
+
+    cursor: pointer;
+
+    transition: .15s ease;
+}
+
+.competition-page .checkbox-label:hover {
+    border-color: #93c5fd;
+
+    background: #eff6ff;
+}
+
+.competition-page .checkbox-label input {
+    width: 19px;
+    height: 19px;
+
+    margin: 0;
+
+    accent-color: var(--cl-primary);
+
+    cursor: pointer;
+}
+
+.competition-page .checkbox-label input:disabled {
+    cursor: not-allowed;
+}
+
+.competition-page .card-title {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.competition-page .card-title h3 {
+    margin: 0 0 5px;
+
+    color: var(--cl-text);
+
+    font-size: 1rem;
+    font-weight: 780;
+
+    letter-spacing: -.01em;
+}
+
+.competition-page .card-category {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 4px 8px;
+
+    border: 1px solid var(--cl-border);
+    border-radius: 999px;
+
+    color: #64748b;
+    background: #f8fafc;
+
+    font-size: .68rem;
+    font-weight: 700;
+}
+
+.competition-page .card-meta {
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: flex-end;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.competition-page .card-fee {
+    padding: 8px 11px;
+
+    border-radius: 10px;
+
+    color: #92400e;
+    background: var(--cl-warning-soft);
+
+    font-size: .8rem;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   DEADLINE
+   ========================================================= */
+
+.competition-page .deadline-badge {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 5px 8px;
+
+    border: 1px solid #fde68a;
+    border-radius: 999px;
+
+    color: #92400e;
+    background: #fffbeb;
+
+    font-size: .66rem;
+    font-weight: 750;
+
+    white-space: nowrap;
+}
+
+.competition-page .deadline-badge.is-closed {
+    color: #991b1b;
+
+    border-color: #fecaca;
+
+    background: #fef2f2;
+}
+
+
+/* =========================================================
+   LOCKED PARTICIPANT AREA
+   ========================================================= */
+
+.competition-page .card-body-participants.is-locked {
+    background: #fafafa;
+}
+
+.competition-page .deadline-locked-box {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 11px;
+
+    padding: 13px 14px;
+    margin-bottom: 14px;
+
+    border: 1px solid #fecaca;
+    border-radius: 12px;
+
+    color: #991b1b;
+
+    background: #fef2f2;
+}
+
+.competition-page .deadline-locked-icon {
+    flex: 0 0 34px;
+
+    width: 34px;
+    height: 34px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    color: #dc2626;
+    background: #fee2e2;
+}
+
+.competition-page .deadline-locked-box strong {
+    display: block;
+
+    margin-bottom: 2px;
+
+    font-size: .78rem;
+}
+
+.competition-page .deadline-locked-box p {
+    margin: 0;
+
+    color: #b91c1c;
+
+    font-size: .71rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   PARTICIPANT BODY
+   ========================================================= */
+
+.competition-page .card-body-participants {
+    padding: 18px;
+
+    border-top: 1px solid var(--cl-border);
+
+    background: #f8fbff;
+
+    animation: clFadeIn .2s ease;
+}
+
+@keyframes clFadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(-3px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   PARTICIPANT HEADING
+   ========================================================= */
+
+.competition-page .participant-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 12px;
+}
+
+.competition-page .participant-heading h4 {
+    margin: 0;
+
+    color: #334155;
+
+    font-size: .86rem;
+    font-weight: 780;
+}
+
+.competition-page .participant-heading small {
+    color: #94a3b8;
+
+    font-size: .7rem;
+}
+
+
+/* =========================================================
+   TEAMS
+   ========================================================= */
+
+.competition-page .teams-container {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.competition-page .team-row {
+    display: grid;
+
+    grid-template-columns:
+        72px
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px;
+
+    border: 1px solid var(--cl-border);
+    border-radius: 13px;
+
+    background: #fff;
+}
+
+.competition-page .team-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 34px;
+
+    padding: 5px 8px;
+
+    border-radius: 8px;
+
+    color: #1d4ed8;
+    background: #eff6ff;
+
+    font-size: .72rem;
+    font-weight: 800;
+}
+
+.competition-page .team-inputs {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+}
+
+.competition-page .team-input-wrap {
+    position: relative;
+}
+
+.competition-page .team-row input {
+    width: 100%;
+
+    min-height: 40px;
+
+    margin: 0;
+    padding-left: 31px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+
+    font-size: .78rem;
+}
+
+.competition-page .team-row input:focus {
+    border-color: #60a5fa;
+
+    box-shadow:
+        0 0 0 .18rem rgba(37, 99, 235, .10);
+}
+
+.competition-page .team-row input:disabled {
+    color: #64748b;
+
+    background: #f1f5f9;
+
+    border-color: #e2e8f0;
+
+    cursor: not-allowed;
+}
+
+.competition-page .team-row input.is-invalid {
+    border-color: #f87171;
+
+    box-shadow:
+        0 0 0 .18rem rgba(220, 38, 38, .08);
+}
+
+
+/* =========================================================
+   TEAM BUTTONS
+   ========================================================= */
+
+.competition-page .remove-team-btn {
+    grid-column: 2;
+
+    justify-self: end;
+
+    min-height: 34px;
+
+    padding: 5px 10px;
+
+    border-radius: 8px;
+
+    font-size: .72rem;
+}
+
+.competition-page .add-team-btn {
+    margin-top: 10px;
+
+    min-height: 38px;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   REGISTERED STATE
+   ========================================================= */
+
+.competition-page .registered-box {
+    padding: 14px;
+
+    border: 1px solid #bbf7d0;
+    border-radius: 13px;
+
+    background: #f0fdf4;
+}
+
+.competition-page .registered-box-title {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 9px;
+
+    color: #166534;
+
+    font-size: .8rem;
+    font-weight: 800;
+}
+
+.competition-page .registered-names {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+.competition-page .registered-names .badge {
+    padding: 7px 9px;
+
+    border-radius: 999px;
+
+    font-size: .7rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   BOTTOM ACTIONS
+   ========================================================= */
+
+.competition-page .cl-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    flex-wrap: wrap;
+
+    margin-top: 22px;
+    padding: 18px;
+
+    border: 1px solid var(--cl-border);
+    border-radius: var(--cl-radius);
+
+    background: #fff;
+
+    box-shadow: 0 7px 24px rgba(15, 23, 42, .04);
+}
+
+.competition-page .cl-actions .btn {
+    min-height: 43px;
+
+    border-radius: 10px;
+
+    font-weight: 750;
+}
+
+.competition-page .cl-primary-action {
+    background: var(--cl-primary);
+
+    border-color: var(--cl-primary);
+}
+
+.competition-page .cl-primary-action:hover,
+.competition-page .cl-primary-action:focus {
+    background: var(--cl-primary-dark);
+
+    border-color: var(--cl-primary-dark);
+}
+
+.competition-page .cl-help {
+    margin-top: 9px;
+
+    color: #94a3b8;
+
+    font-size: .7rem;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
+    .competition-page.cl-page {
+        padding-top: 125px;
+    }
+
+    .competition-page .cl-container {
+        width: min(100% - 22px, 680px);
+    }
+
+    .competition-page .cl-hero {
+        padding: 22px 18px;
+    }
+
+    .competition-page .card-header-bar {
+        align-items: flex-start;
+    }
+
+    .competition-page .card-fee {
+        margin-left: auto;
+    }
+
+    .competition-page .team-row {
+        grid-template-columns: 1fr;
+    }
+
+    .competition-page .team-inputs {
+        grid-template-columns: 1fr;
+    }
+
+    .competition-page .remove-team-btn {
+        grid-column: auto;
+
+        justify-self: stretch;
+    }
+
+}
+
+
+@media (max-width: 575.98px) {
+
+    .competition-page.cl-page {
+        padding-top: 105px;
+        padding-bottom: 45px;
+    }
+
+    .competition-page .cl-hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .competition-page .cl-list-summary {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .competition-page .card-header-bar {
+        display: grid;
+
+        grid-template-columns:
+            42px
+            minmax(0, 1fr);
+    }
+
+    .competition-page .card-fee {
+        grid-column: 2;
+
+        justify-self: start;
+
+        margin-left: 0;
+    }
+
+    .competition-page .cl-actions {
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+    .competition-page .cl-actions .btn {
+        width: 100%;
+
+        margin: 0 !important;
+    }
+
+}

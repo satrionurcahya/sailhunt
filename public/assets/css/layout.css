@@ -1,0 +1,349 @@
+/* =========================================================
+   Sail & Hunt Chapter I
+   File : assets/css/layout.css
+   ========================================================= */
+
+/* ===========================
+   CONTAINER
+=========================== */
+
+.container {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+}
+
+.container-sm { max-width: 760px; }
+.container-md { max-width: 980px; }
+.container-lg { max-width: 1200px; }
+.container-xl { max-width: 1360px; }
+
+/* ===========================
+   MAIN LAYOUT
+=========================== */
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main {
+    flex: 1;
+    min-height: 100vh;
+    margin-left: var(--sidebar-width);
+    transition: margin-left var(--normal);
+    background: var(--body);
+}
+
+.content { padding: 2rem; }
+
+/* ===========================
+   SIDEBAR
+=========================== */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+}
+
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, .18); }
+
+/* ===========================
+   SIDEBAR HEADER
+=========================== */
+
+.sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.sidebar-logo {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.sidebar-logo em {
+    color: var(--lo);
+    font-style: italic;
+}
+
+/* ===========================
+   USER CARD
+=========================== */
+
+.sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: .85rem;
+    margin-top: 1.25rem;
+}
+
+.sidebar-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 800;
+}
+
+.sidebar-user-info h4 {
+    font-size: .9rem;
+    color: #fff;
+    margin-bottom: 2px;
+    font-family: var(--font-body);
+}
+
+.sidebar-user-info p {
+    margin: 0;
+    color: rgba(255, 255, 255, .55);
+    font-size: .75rem;
+}
+
+/* ===========================
+   MENU
+=========================== */
+
+.sidebar-menu {
+    padding: 1rem 0;
+    flex: 1;
+}
+
+.menu-title {
+    padding: .4rem 1.5rem;
+    color: rgba(255, 255, 255, .25);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: .15rem;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    width: 100%;
+    padding: .85rem 1.5rem;
+    color: var(--sidebar-text);
+    transition: var(--fast);
+    position: relative;
+}
+
+.menu-item i {
+    width: 18px;
+    text-align: center;
+    font-size: .9rem;
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, .05);
+    color: #fff;
+}
+
+.menu-item.active {
+    background: rgba(255, 204, 128, .10);
+    color: var(--sidebar-active);
+}
+
+.menu-item.active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--sidebar-active);
+    border-radius: 0 4px 4px 0;
+}
+
+/* ===========================
+   SIDEBAR FOOTER
+=========================== */
+
+.sidebar-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    font-size: .75rem;
+    color: rgba(255, 255, 255, .35);
+}
+
+/* ===========================
+   TOPBAR
+=========================== */
+
+.topbar {
+    height: var(--header-height);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.topbar-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.topbar-subtitle {
+    color: var(--text-muted);
+    font-size: .8rem;
+    margin: 0;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* ===========================
+   MOBILE MENU BUTTON
+=========================== */
+
+.menu-toggle {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--azD);
+    color: #fff;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* ===========================
+   SECTION
+=========================== */
+
+.section { padding: 4rem 0; }
+.section-sm { padding: 2rem 0; }
+
+.section-title {
+    margin-bottom: .5rem;
+    text-align: center;
+}
+
+.section-subtitle {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+/* ===========================
+   PAGE HEADER
+=========================== */
+
+.page-header { margin-bottom: 2rem; }
+.page-header h1 { margin-bottom: .35rem; }
+.page-header p { margin: 0; color: var(--text-muted); }
+
+/* ===========================
+   BREADCRUMB
+=========================== */
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: 1rem;
+    font-size: .85rem;
+    color: var(--text-muted);
+}
+
+.breadcrumb i { font-size: .7rem; }
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.footer {
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-muted);
+    background: #fff;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 1024px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 860px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform .3s;
+    }
+
+    .sidebar.show { transform: translateX(0); }
+
+    .main { margin-left: 0; }
+
+    .menu-toggle { display: flex; }
+
+    .content { padding: 1.25rem; }
+}
+
+@media (max-width: 640px) {
+    .grid-2,
+    .grid-3,
+    .grid-4 { grid-template-columns: 1fr; }
+
+    .topbar { padding: 0 1rem; }
+    .container { padding-inline: 1rem; }
+    .section { padding: 3rem 0; }
+}

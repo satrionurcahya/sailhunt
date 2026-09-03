@@ -1,0 +1,963 @@
+/* =========================================================
+   SAIL & HUNT CHAPTER I
+   File : assets/css/responsive.css
+   ========================================================= */
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+/*
+ * Desktop:
+ * Navbar tetap horizontal.
+ */
+
+
+/* =========================================================
+   NAVBAR - LAPTOP / DESKTOP KECIL
+   <= 1200px
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .nav-container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .nav-menu {
+        gap: 1.25rem;
+    }
+
+    .nav-menu > a,
+    .nav-dropdown-toggle {
+        font-size: 0.88rem;
+    }
+
+    .nav-action {
+        gap: 0.5rem;
+    }
+
+    .nav-user-info {
+        max-width: 160px;
+    }
+
+}
+
+
+/* =========================================================
+   NAVBAR - TABLET / HALF SCREEN
+   <= 1100px
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    /*
+     * Navbar menjadi mode hamburger.
+     */
+    .navbar {
+        height: 72px;
+    }
+
+
+    .nav-container {
+        height: 72px;
+
+        padding-left: 18px;
+        padding-right: 18px;
+
+        display: flex;
+        align-items: center;
+    }
+
+
+    /* -----------------------------------------------------
+       LOGO
+       ----------------------------------------------------- */
+
+    .logo {
+        flex: 0 0 auto;
+
+        min-width: 0;
+    }
+
+    .logo-image {
+        height: 52px;
+
+        width: auto;
+
+        max-width: 150px;
+
+        object-fit: contain;
+    }
+
+
+    /* -----------------------------------------------------
+       MENU UTAMA
+       ----------------------------------------------------- */
+
+    .nav-menu {
+
+        /*
+         * Jangan gunakan display:flex di sini.
+         * Menu harus tersembunyi sampai tombol hamburger
+         * diklik.
+         */
+        display: none;
+
+        position: absolute;
+
+        top: 72px;
+
+        left: 12px;
+        right: 12px;
+
+        width: auto;
+
+        max-height: calc(100vh - 84px);
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        justify-content: flex-start;
+
+        gap: 4px;
+
+        padding: 12px;
+
+        background: rgba(13, 74, 133, 0.98);
+
+        border-radius: 0 0 18px 18px;
+
+        box-shadow:
+            0 18px 45px rgba(0, 0, 0, 0.22);
+
+        backdrop-filter: blur(14px);
+
+        z-index: 2000;
+    }
+
+
+    /*
+     * Menu dibuka oleh navigation.js
+     */
+    .nav-menu.show {
+        display: flex;
+    }
+
+
+    /* -----------------------------------------------------
+       LINK MENU
+       ----------------------------------------------------- */
+
+    .nav-menu > a {
+
+        width: 100%;
+
+        min-height: 46px;
+
+        display: flex !important;
+
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 11px 14px;
+
+        border-radius: 10px;
+
+        color: rgba(255, 255, 255, 0.94) !important;
+
+        font-size: 0.92rem !important;
+
+        white-space: normal;
+    }
+
+
+    .nav-menu > a:hover,
+    .nav-menu > a.active {
+
+        background: rgba(255, 255, 255, 0.10);
+
+        color: #ffffff !important;
+    }
+
+
+    /*
+     * Hilangkan underline menu desktop.
+     */
+    .nav-menu > a::after {
+        display: none !important;
+    }
+
+
+    /* -----------------------------------------------------
+       ICON MENU
+       ----------------------------------------------------- */
+
+    .nav-menu > a i {
+
+        width: 20px;
+
+        flex: 0 0 20px;
+
+        text-align: center;
+    }
+
+
+    /* -----------------------------------------------------
+       DROPDOWN
+       ----------------------------------------------------- */
+
+    .nav-dropdown {
+
+        width: 100%;
+
+        position: relative;
+    }
+
+
+    .nav-dropdown-toggle {
+
+        width: 100%;
+
+        min-height: 46px;
+
+        display: flex !important;
+
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 11px 14px;
+
+        border-radius: 10px;
+
+        color: rgba(255, 255, 255, 0.94) !important;
+    }
+
+
+    .nav-dropdown-toggle:hover {
+
+        background: rgba(255, 255, 255, 0.10);
+
+        color: #ffffff !important;
+    }
+
+
+    .nav-dropdown-toggle i:last-child {
+
+        margin-left: auto;
+
+        transition:
+            transform 0.2s ease;
+    }
+
+
+    .nav-dropdown.open
+    .nav-dropdown-toggle
+    i:last-child {
+
+        transform: rotate(180deg);
+    }
+
+
+    /*
+     * Dropdown mobile/tablet.
+     */
+    .nav-dropdown-menu {
+
+        position: static !important;
+
+        display: none;
+
+        width: 100%;
+
+        min-width: 0;
+
+        margin: 4px 0 0;
+
+        padding: 6px;
+
+        background: rgba(0, 0, 0, 0.12);
+
+        border-radius: 10px;
+
+        box-shadow: none;
+
+        opacity: 1 !important;
+
+        visibility: visible !important;
+
+        transform: none !important;
+    }
+
+
+    /*
+     * Dibuka oleh navigation.js
+     */
+    .nav-dropdown.open
+    .nav-dropdown-menu {
+
+        display: block;
+    }
+
+
+    .nav-dropdown-menu a {
+
+        width: 100%;
+
+        min-height: 42px;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 9px;
+
+        padding: 9px 12px !important;
+
+        color: #ffffff !important;
+
+        border-radius: 8px;
+    }
+
+
+    .nav-dropdown-menu a:hover {
+
+        background: rgba(255, 255, 255, 0.10);
+
+        color: #ffffff !important;
+    }
+
+
+    .dropdown-category {
+
+        display: block;
+
+        padding: 8px 12px;
+
+        color: rgba(255, 255, 255, 0.60);
+
+        font-size: 0.68rem;
+
+        font-weight: 700;
+    }
+
+
+    .dropdown-divider {
+
+        height: 1px;
+
+        margin: 5px 8px;
+
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+
+    /* -----------------------------------------------------
+       ACTION AREA
+       ----------------------------------------------------- */
+
+    .nav-action {
+
+        display: flex !important;
+
+        align-items: center;
+
+        flex: 0 0 auto;
+
+        gap: 6px;
+
+        margin-left: auto;
+
+        margin-right: 8px;
+
+        min-width: 0;
+    }
+
+
+    /*
+     * Nama sekolah disembunyikan pada tablet
+     * supaya tidak mengambil ruang.
+     */
+    .nav-user-info {
+
+        display: none !important;
+    }
+
+
+    /*
+     * Tombol logout tetap ada.
+     */
+    .nav-logout {
+
+        display: inline-flex !important;
+
+        align-items: center;
+
+        justify-content: center;
+
+        width: 42px;
+
+        height: 42px;
+
+        padding: 0 !important;
+
+        border-radius: 50%;
+    }
+
+
+    .nav-logout span {
+
+        display: none;
+    }
+
+
+    .nav-logout i {
+
+        margin: 0 !important;
+    }
+
+
+    /*
+     * Login / Register.
+     */
+    .nav-auth-btn {
+
+        display: inline-flex !important;
+
+        align-items: center;
+
+        justify-content: center;
+
+        min-width: 42px;
+
+        height: 42px;
+
+        padding: 0 12px !important;
+    }
+
+
+    .nav-auth-btn span {
+
+        display: none;
+    }
+
+
+    /* -----------------------------------------------------
+       HAMBURGER
+       ----------------------------------------------------- */
+
+    .nav-toggle {
+
+        display: flex !important;
+
+        align-items: center;
+
+        justify-content: center;
+
+        width: 44px;
+
+        height: 44px;
+
+        flex: 0 0 44px;
+
+        padding: 0;
+
+        border: 0;
+
+        border-radius: 12px;
+
+        background: rgba(255, 255, 255, 0.12);
+
+        color: #ffffff;
+
+        cursor: pointer;
+
+        z-index: 2100;
+
+        transition:
+            background 0.2s ease,
+            transform 0.2s ease;
+    }
+
+
+    .nav-toggle:hover {
+
+        background: rgba(255, 255, 255, 0.20);
+    }
+
+
+    .nav-toggle.active {
+
+        background: rgba(255, 255, 255, 0.20);
+    }
+
+
+    .nav-toggle i {
+
+        font-size: 1.15rem;
+    }
+
+}
+
+
+/* =========================================================
+   NAVBAR - TABLET KECIL
+   <= 768px
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: 68px;
+    }
+
+
+    .nav-container {
+
+        height: 68px;
+
+        padding-left: 14px;
+
+        padding-right: 14px;
+    }
+
+
+    .logo-image {
+
+        height: 50px;
+
+        max-width: 140px;
+    }
+
+
+    .nav-menu {
+
+        top: 68px;
+
+        left: 8px;
+
+        right: 8px;
+
+        max-height: calc(100vh - 76px);
+
+        padding: 10px;
+    }
+
+
+    .nav-toggle {
+
+        width: 42px;
+
+        height: 42px;
+
+        flex-basis: 42px;
+    }
+
+
+    .nav-logout,
+    .nav-auth-btn {
+
+        width: 40px;
+
+        min-width: 40px;
+
+        height: 40px;
+    }
+
+}
+
+
+/* =========================================================
+   NAVBAR - MOBILE
+   <= 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .navbar {
+        height: 64px;
+    }
+
+
+    .nav-container {
+
+        height: 64px;
+
+        padding-left: 10px;
+
+        padding-right: 10px;
+    }
+
+
+    .logo-image {
+
+        height: 46px;
+
+        max-width: 125px;
+    }
+
+
+    .nav-menu {
+
+        top: 64px;
+
+        left: 6px;
+
+        right: 6px;
+
+        max-height: calc(100vh - 70px);
+
+        border-radius: 0 0 16px 16px;
+    }
+
+
+    .nav-toggle {
+
+        width: 40px;
+
+        height: 40px;
+
+        flex-basis: 40px;
+
+        border-radius: 10px;
+    }
+
+
+    .nav-logout,
+    .nav-auth-btn {
+
+        width: 38px;
+
+        min-width: 38px;
+
+        height: 38px;
+    }
+
+}
+
+
+/* =========================================================
+   NAVBAR - EXTRA SMALL
+   <= 360px
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .nav-container {
+
+        padding-left: 8px;
+
+        padding-right: 8px;
+    }
+
+
+    .logo-image {
+
+        height: 42px;
+
+        max-width: 110px;
+    }
+
+
+    .nav-action {
+
+        margin-right: 4px;
+    }
+
+
+    .nav-toggle {
+
+        width: 38px;
+
+        height: 38px;
+
+        flex-basis: 38px;
+    }
+
+
+    .nav-logout,
+    .nav-auth-btn {
+
+        width: 36px;
+
+        min-width: 36px;
+
+        height: 36px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - LANDING PAGE
+   ========================================================= */
+
+@media (max-width: 960px) {
+
+    .hero-container {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+
+    .hero-description {
+
+        margin: auto;
+    }
+
+
+    .hero-info {
+
+        justify-content: center;
+    }
+
+
+    .hero-button {
+
+        justify-content: center;
+    }
+
+
+    .hero-title {
+
+        font-size: 3.3rem;
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .hero {
+
+        min-height: auto;
+
+        padding-bottom: 80px;
+    }
+
+
+    .hero-container {
+
+        padding-top: 120px;
+    }
+
+
+    .hero-title {
+
+        font-size: 2.6rem;
+    }
+
+
+    .hero-subtitle {
+
+        font-size: 1rem;
+    }
+
+
+    .hero-info {
+
+        flex-direction: column;
+    }
+
+
+    .event-card {
+
+        padding: 1.5rem;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - COUNTDOWN, WHY, TIMELINE, COMPETITION
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .comp-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .timeline-wrapper::before {
+
+        left: 25px;
+    }
+
+
+    .timeline-item {
+
+        width: 100%;
+
+        padding-left: 70px;
+
+        padding-right: 0;
+
+        margin-left: 0 !important;
+    }
+
+
+    .timeline-dot {
+
+        left: 14px !important;
+
+        right: auto !important;
+    }
+
+
+    .why-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .countdown-box {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .comp-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .countdown-box {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .timeline-item {
+
+        padding-left: 60px;
+    }
+
+
+    .section-header h2 {
+
+        font-size: 2rem;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - PRIZE, CONTACT, FOOTER
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .prize-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .contact-wrapper {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .footer-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .footer-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .contact-card {
+
+        padding: 2rem;
+    }
+
+
+    .sponsor-item {
+
+        width: 140px;
+
+        height: 70px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - REGISTER PAGE
+   ========================================================= */
+
+@media (max-width: 992px) {
+
+    #registerForm {
+
+        padding: 35px;
+    }
+
+
+    .register-header {
+
+        padding: 35px;
+    }
+
+
+    .wizard-text {
+
+        display: none;
+    }
+
+
+    .wizard-circle {
+
+        margin: auto;
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    #registerForm {
+
+        padding: 25px 20px;
+    }
+
+
+    .register-header {
+
+        padding: 25px 20px;
+    }
+
+}

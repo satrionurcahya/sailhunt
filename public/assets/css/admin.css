@@ -1,0 +1,1219 @@
+/* =========================================================
+   SAIL & HUNT CHAPTER I
+   ADMIN PANEL
+   ========================================================= */
+
+
+/* =========================================================
+   ADMIN GLOBAL
+   ========================================================= */
+
+.admin-layout {
+    min-height: 100vh;
+
+    background: #f1f5f9;
+
+    color: #1e293b;
+}
+
+
+/* =========================================================
+   ADMIN MAIN
+   ========================================================= */
+
+.admin-layout .admin-main {
+    width: 100%;
+
+    min-height: calc(100vh - 78px);
+
+    padding-top: 100px;
+    padding-bottom: 60px;
+
+    background: #f1f5f9;
+}
+
+
+/* =========================================================
+   ADMIN NAVBAR
+   =========================================================
+
+   CATATAN:
+   - Jangan mengatur display .nav-menu di sini.
+   - Jangan mengatur responsive menu di sini.
+   - Responsive navbar ditangani responsive.css.
+   - Buka/tutup menu ditangani navigation.js.
+   ========================================================= */
+
+.admin-layout .navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+
+    height: 78px;
+
+    background: #0d4f8b;
+
+    color: #ffffff;
+
+    z-index: 3000;
+
+    box-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   ADMIN NAVBAR CONTAINER
+   ========================================================= */
+
+.admin-layout .nav-container {
+    width: 100%;
+
+    max-width: 1400px;
+
+    height: 78px;
+
+    margin: 0 auto;
+
+    padding-left: 24px;
+    padding-right: 24px;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   ADMIN LOGO
+   ========================================================= */
+
+.admin-layout .logo {
+    display: flex;
+
+    align-items: center;
+
+    flex: 0 0 auto;
+
+    height: 78px;
+}
+
+
+.admin-layout .logo-image {
+    display: block;
+
+    width: auto;
+
+    height: 58px;
+
+    max-width: 150px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   ADMIN NAV MENU
+   =========================================================
+
+   PENTING:
+   Jangan memberikan:
+       display: flex;
+
+   pada .nav-menu di sini.
+
+   responsive.css yang menentukan:
+   - desktop
+   - tablet
+   - mobile
+   - hamburger
+   ========================================================= */
+
+.admin-layout .nav-menu > a,
+.admin-layout .nav-dropdown-toggle {
+    color: rgba(255, 255, 255, 0.92) !important;
+
+    font-family: 'Nunito', sans-serif;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.admin-layout .nav-menu > a:hover,
+.admin-layout .nav-dropdown-toggle:hover {
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   NAV ICON
+   ========================================================= */
+
+.admin-layout .nav-menu i {
+    color: inherit;
+}
+
+
+/* =========================================================
+   DROPDOWN
+   ========================================================= */
+
+.admin-layout .nav-dropdown-menu {
+    z-index: 4000;
+}
+
+
+/* =========================================================
+   ADMIN NAV ACTION
+   ========================================================= */
+
+.admin-layout .nav-action {
+    display: flex;
+
+    align-items: center;
+
+    flex: 0 0 auto;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   ADMIN USER INFO
+   ========================================================= */
+
+.admin-layout .nav-user-info {
+    color: #ffffff;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   ADMIN LOGOUT
+   ========================================================= */
+
+.admin-layout .nav-logout {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 44px;
+
+    padding: 0 18px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background: #f28c00;
+
+    color: #ffffff;
+
+    font-family: 'Nunito', sans-serif;
+
+    font-size: 0.9rem;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 18px rgba(242, 140, 0, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.admin-layout .nav-logout:hover {
+    background: #e17d00;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 22px rgba(242, 140, 0, 0.32);
+}
+
+
+/* =========================================================
+   ADMIN HAMBURGER
+   ========================================================= */
+
+.admin-layout .nav-toggle {
+    color: #ffffff;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    border: none;
+}
+
+
+.admin-layout .nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.20);
+}
+
+
+/* =========================================================
+   ADMIN PAGE
+   ========================================================= */
+
+.admin-layout .admin-page {
+    width: 100%;
+
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+.admin-layout .admin-page > .container {
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   ADMIN HEADER
+   ========================================================= */
+
+.admin-layout .admin-header {
+    margin-bottom: 30px;
+}
+
+
+.admin-layout .admin-header h1 {
+    margin: 0 0 8px;
+
+    color: #0d4f8b;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(
+        2rem,
+        3vw,
+        2.8rem
+    );
+
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+
+.admin-layout .admin-header p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-family: 'Nunito', sans-serif;
+
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   ADMIN CARD
+   ========================================================= */
+
+.admin-layout .admin-card {
+    width: 100%;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #dbe4ef;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.06);
+}
+
+
+/* =========================================================
+   ADMIN CARD HEADER
+   ========================================================= */
+
+.admin-layout .admin-card-header {
+    min-height: 72px;
+
+    padding: 16px 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    border-bottom: 1px solid #dbe4ef;
+
+    background: #ffffff;
+}
+
+
+.admin-layout .admin-card-header h2 {
+    margin: 0;
+
+    color: #0d4f8b;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 1.35rem;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ADMIN CARD BODY
+   ========================================================= */
+
+.admin-layout .admin-card-body {
+    width: 100%;
+
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   ADMIN TABLE WRAPPER
+   ========================================================= */
+
+.admin-layout .admin-table-wrap {
+    width: 100%;
+
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/* =========================================================
+   ADMIN TABLE
+   ========================================================= */
+
+.admin-layout .admin-table {
+    width: 100%;
+
+    min-width: 720px;
+
+    border-collapse: collapse;
+
+    font-family: 'Nunito', sans-serif;
+}
+
+
+.admin-layout .admin-table thead th {
+    padding: 15px 18px;
+
+    background: #eef3f8;
+
+    color: #475569;
+
+    border-bottom: 1px solid #dbe4ef;
+
+    font-size: 0.8rem;
+
+    font-weight: 800;
+
+    text-align: left;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.04em;
+}
+
+
+.admin-layout .admin-table tbody td {
+    padding: 16px 18px;
+
+    color: #334155;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    font-size: 0.92rem;
+
+    vertical-align: middle;
+}
+
+
+.admin-layout .admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+.admin-layout .admin-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+
+/* =========================================================
+   ADMIN BADGES
+   ========================================================= */
+
+.admin-layout .badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    min-height: 30px;
+
+    padding: 5px 11px;
+
+    border-radius: 999px;
+
+    font-family: 'Nunito', sans-serif;
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+}
+
+
+.admin-layout .badge-primary {
+    background: #dbeafe;
+
+    color: #155e9e;
+}
+
+
+.admin-layout .badge-success {
+    background: #dcfce7;
+
+    color: #15803d;
+}
+
+
+.admin-layout .badge-warning {
+    background: #fef3c7;
+
+    color: #b45309;
+}
+
+
+.admin-layout .badge-danger {
+    background: #fee2e2;
+
+    color: #b91c1c;
+}
+
+
+/* =========================================================
+   ADMIN BUTTON
+   ========================================================= */
+
+.admin-layout .btn {
+    font-family: 'Nunito', sans-serif;
+
+    font-weight: 700;
+}
+
+
+.admin-layout .btn-sm {
+    min-height: 34px;
+
+    padding: 6px 12px;
+
+    border-radius: 8px;
+
+    font-size: 0.78rem;
+}
+
+
+/* =========================================================
+   ADMIN FOOTER
+   ========================================================= */
+
+.admin-layout .footer {
+    margin-top: 0;
+
+    background: #0b2953;
+
+    color: #ffffff;
+}
+
+
+.admin-layout .footer-top {
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   ADMIN FOOTER LOGO
+   ========================================================= */
+
+.admin-layout .footer-logo {
+    width: auto;
+
+    height: 70px;
+
+    max-width: 180px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   ADMIN PAGINATION
+   ========================================================= */
+
+.admin-layout .admin-card-footer {
+    width: 100%;
+}
+
+
+.admin-layout .pagination {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.admin-layout .pagination .page-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 34px;
+
+    height: 34px;
+
+    padding-left: 9px;
+    padding-right: 9px;
+
+    border: 1px solid #dbe4ef;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #0d4f8b;
+
+    text-decoration: none;
+}
+
+
+.admin-layout .pagination .page-item.active .page-link {
+    background: #0d4f8b;
+
+    border-color: #0d4f8b;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   ADMIN RESPONSIVE
+   =========================================================
+
+   PENTING:
+   Tidak ada aturan .nav-menu di sini.
+   Responsive navbar sepenuhnya diserahkan ke
+   responsive.css.
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   LAPTOP / TABLET
+   --------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+
+    .admin-layout .admin-main {
+        padding-top: 90px;
+    }
+
+
+    .admin-layout .admin-page {
+        padding-left: 15px;
+
+        padding-right: 15px;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   TABLET
+   --------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    .admin-layout .admin-main {
+        padding-top: 84px;
+
+        padding-bottom: 40px;
+    }
+
+
+    .admin-layout .admin-page {
+        padding-left: 10px;
+
+        padding-right: 10px;
+    }
+
+
+    .admin-layout .admin-header {
+        margin-bottom: 20px;
+    }
+
+
+    .admin-layout .admin-header h1 {
+        font-size: 2rem;
+    }
+
+
+    .admin-layout .admin-card-header {
+        min-height: 64px;
+
+        padding: 14px 16px;
+    }
+
+
+    .admin-layout .admin-card-header h2 {
+        font-size: 1.15rem;
+    }
+
+
+    .admin-layout .admin-table {
+        min-width: 680px;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+    .admin-layout .admin-main {
+        padding-top: 78px;
+
+        padding-bottom: 35px;
+    }
+
+
+    .admin-layout .admin-page {
+        padding-left: 6px;
+
+        padding-right: 6px;
+    }
+
+
+    .admin-layout .admin-header h1 {
+        font-size: 1.7rem;
+    }
+
+
+    .admin-layout .admin-header p {
+        font-size: 0.9rem;
+    }
+
+
+    .admin-layout .admin-card {
+        border-radius: 12px;
+    }
+
+
+    .admin-layout .admin-card-header {
+        flex-wrap: wrap;
+
+        align-items: flex-start;
+    }
+
+
+    .admin-layout .admin-card-header h2 {
+        font-size: 1.05rem;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   EXTRA SMALL MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 360px) {
+
+    .admin-layout .admin-page {
+        padding-left: 4px;
+
+        padding-right: 4px;
+    }
+
+
+    .admin-layout .admin-card {
+        border-radius: 10px;
+    }
+
+}
+
+/* =========================================================
+   ADMIN LAYOUT
+   ========================================================= */
+
+.admin-main {
+    padding-top: 90px;
+    min-height: 70vh;
+    background: #f0f2f8;
+}
+
+
+/* =========================================================
+   ADMIN PAGE
+   ========================================================= */
+
+.admin-page {
+    width: 100%;
+    padding: 30px 0 50px;
+}
+
+
+/* =========================================================
+   ADMIN CONTAINER
+   ========================================================= */
+
+.admin-page > .container {
+    width: min(1400px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   ADMIN HEADER
+   ========================================================= */
+
+.admin-page .admin-header {
+    margin-bottom: 30px;
+}
+
+.admin-page .admin-header h1 {
+    margin: 0 0 8px;
+    font-family: var(--font-title);
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #0D4A85;
+}
+
+.admin-page .admin-header h1 i {
+    margin-right: 8px;
+}
+
+.admin-page .admin-header p {
+    margin: 0;
+    color: #64748b;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   ADMIN STATS
+   ========================================================= */
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.admin-stat-card {
+    min-width: 0;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 22px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.admin-stat-card h3 {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0D4A85;
+}
+
+.admin-stat-card p {
+    margin: 6px 0 0;
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   ADMIN CARD
+   ========================================================= */
+
+.admin-card {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.admin-card-header {
+    min-height: 64px;
+    padding: 16px 22px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.admin-card-header h2 {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #0D4A85;
+}
+
+.admin-card-body {
+    padding: 22px;
+}
+
+
+/* =========================================================
+   ADMIN MENU GRID
+   ========================================================= */
+
+.admin-card-body > .row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+
+    margin: 0;
+}
+
+
+/*
+ * Karena dashboard menggunakan:
+ *
+ * .col-lg-4
+ * .col-md-6
+ * .mb-3
+ *
+ * kita reset agar tidak bergantung pada Bootstrap.
+ */
+
+.admin-card-body > .row > [class*="col-"] {
+    width: auto;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* =========================================================
+   ADMIN MENU CARD
+   ========================================================= */
+
+.admin-menu-card {
+    width: 100%;
+    min-height: 92px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 16px 20px;
+
+    background: #fff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+
+    text-decoration: none !important;
+
+    color: #0f172a !important;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.admin-menu-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #0D4A85;
+
+    box-shadow:
+        0 10px 25px rgba(13, 74, 133, 0.10);
+}
+
+
+/* =========================================================
+   MENU ICON
+   ========================================================= */
+
+.admin-menu-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    font-size: 1.35rem;
+}
+
+
+/* =========================================================
+   MENU CONTENT
+   ========================================================= */
+
+.admin-menu-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.admin-menu-content h4 {
+    margin: 0;
+
+    font-family: var(--font-body);
+
+    font-size: 0.95rem;
+    font-weight: 800;
+
+    color: #0f172a;
+}
+
+.admin-menu-content p {
+    margin: 3px 0 0;
+
+    font-family: var(--font-body);
+
+    font-size: 0.78rem;
+
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   MENU ARROW
+   ========================================================= */
+
+.admin-menu-arrow {
+    flex: 0 0 auto;
+
+    color: #cbd5e1;
+
+    font-size: 0.85rem;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.admin-menu-card:hover .admin-menu-arrow {
+    color: #0D4A85;
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   ADMIN TABLE
+   ========================================================= */
+
+.admin-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-family: var(--font-body);
+
+    font-size: 0.9rem;
+}
+
+.admin-table thead th {
+    padding: 12px 14px;
+
+    background: #f1f5f9;
+
+    color: #475569;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    border-bottom: 2px solid #e2e8f0;
+
+    text-align: left;
+}
+
+.admin-table tbody td {
+    padding: 12px 14px;
+
+    border-bottom: 1px solid #f1f5f9;
+
+    vertical-align: middle;
+}
+
+.admin-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+
+/* =========================================================
+   ADMIN RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .admin-card-body > .row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .admin-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .admin-page {
+        padding-top: 20px;
+    }
+
+    .admin-page > .container {
+        width: min(
+            100% - 28px,
+            1400px
+        );
+    }
+
+    .admin-card-body > .row {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .admin-menu-card {
+        min-height: 80px;
+        padding: 14px 16px;
+    }
+
+    .admin-menu-icon {
+        width: 46px;
+        height: 46px;
+        min-width: 46px;
+        font-size: 1.15rem;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .admin-main {
+        padding-top: 80px;
+    }
+
+    .admin-page > .container {
+        width: calc(100% - 20px);
+    }
+
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-card-header {
+        padding: 14px 16px;
+
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .admin-card-body {
+        padding: 16px;
+    }
+
+    .admin-menu-card {
+        gap: 12px;
+    }
+
+    .admin-menu-content h4 {
+        font-size: 0.9rem;
+    }
+
+    .admin-menu-content p {
+        font-size: 0.75rem;
+    }
+
+}
