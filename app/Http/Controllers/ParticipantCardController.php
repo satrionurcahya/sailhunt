@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Registration;
-use Illuminate\Http\Request;
+use App\Models\Upload;
 
 class ParticipantCardController extends Controller
 {
@@ -18,9 +18,37 @@ class ParticipantCardController extends Controller
         if (!$unitId) {
             return redirect()
                 ->route('login')
-                ->with('error', 'Silakan login terlebih dahulu.');
+                ->with(
+                    'error',
+                    'Silakan login terlebih dahulu.'
+                );
         }
 
+        /*
+        |--------------------------------------------------------------------------
+        | CEK DAFTAR ULANG
+        |--------------------------------------------------------------------------
+        */
+        $daftarUlangVerified = Upload::query()
+            ->where('unit_id', $unitId)
+            ->where('type', 'daftar_ulang')
+            ->where('status', 'verified')
+            ->exists();
+
+        if (!$daftarUlangVerified) {
+            return redirect()
+                ->route('profile.index')
+                ->with(
+                    'error',
+                    'Kartu peserta dapat diakses setelah dokumen daftar ulang diverifikasi admin.'
+                );
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | AMBIL REGISTRATION
+        |--------------------------------------------------------------------------
+        */
         $registrations = Registration::query()
             ->with([
                 'competition',
@@ -29,6 +57,10 @@ class ParticipantCardController extends Controller
             ])
             ->where('unit_id', $unitId)
             ->whereNotNull('registration_code')
+            ->whereIn('payment_status', [
+                'paid',
+                'verified',
+            ])
             ->orderBy('competition_id')
             ->orderBy('id')
             ->get();
@@ -38,7 +70,6 @@ class ParticipantCardController extends Controller
             compact('registrations')
         );
     }
-
 
     /**
      * Menampilkan satu kartu peserta.
@@ -50,9 +81,41 @@ class ParticipantCardController extends Controller
         if (!$unitId) {
             return redirect()
                 ->route('login')
-                ->with('error', 'Silakan login terlebih dahulu.');
+                ->with(
+                    'error',
+                    'Silakan login terlebih dahulu.'
+                );
         }
 
+        /*
+        |--------------------------------------------------------------------------
+        | CEK DAFTAR ULANG
+        |--------------------------------------------------------------------------
+        */
+        $daftarUlangVerified = Upload::query()
+            ->where('unit_id', $unitId)
+            ->where('type', 'daftar_ulang')
+            ->where('status', 'verified')
+            ->exists();
+
+        if (!$daftarUlangVerified) {
+            return redirect()
+                ->route('profile.index')
+                ->with(
+                    'error',
+                    'Kartu peserta dapat diakses setelah dokumen daftar ulang diverifikasi admin.'
+                );
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | AMBIL REGISTRATION
+        |--------------------------------------------------------------------------
+        |
+        | where(unit_id) memastikan unit hanya dapat
+        | melihat kartu miliknya sendiri.
+        |
+        */
         $registration = Registration::query()
             ->with([
                 'competition',
@@ -60,8 +123,29 @@ class ParticipantCardController extends Controller
                 'participants',
             ])
             ->where('unit_id', $unitId)
-            ->where('registration_code', $registrationCode)
+            ->where(
+                'registration_code',
+                $registrationCode
+            )
+            ->whereIn('payment_status', [
+                'paid',
+                'verified',
+            ])
             ->firstOrFail();
+
+        /*
+        |--------------------------------------------------------------------------
+        | VALIDASI KODE
+        |--------------------------------------------------------------------------
+        */
+        if (!$registration->registration_code) {
+            return redirect()
+                ->route('status.index')
+                ->with(
+                    'error',
+                    'Kode peserta belum tersedia.'
+                );
+        }
 
         return view(
             'dashboard.kartu-peserta.show',
@@ -69,14 +153,9 @@ class ParticipantCardController extends Controller
         );
     }
 
-
     /**
-     * Menampilkan seluruh kartu peserta
-     * dalam format halaman PDF kumulatif.
-     *
-     * PDF dibuat menggunakan fitur Print
-     * dari browser agar tidak perlu dependency
-     * PDF tambahan di Laravel.
+     * Menampilkan seluruh kartu dalam satu halaman
+     * untuk disimpan sebagai PDF kumulatif.
      */
     public function pdf()
     {
@@ -85,9 +164,37 @@ class ParticipantCardController extends Controller
         if (!$unitId) {
             return redirect()
                 ->route('login')
-                ->with('error', 'Silakan login terlebih dahulu.');
+                ->with(
+                    'error',
+                    'Silakan login terlebih dahulu.'
+                );
         }
 
+        /*
+        |--------------------------------------------------------------------------
+        | CEK DAFTAR ULANG
+        |--------------------------------------------------------------------------
+        */
+        $daftarUlangVerified = Upload::query()
+            ->where('unit_id', $unitId)
+            ->where('type', 'daftar_ulang')
+            ->where('status', 'verified')
+            ->exists();
+
+        if (!$daftarUlangVerified) {
+            return redirect()
+                ->route('profile.index')
+                ->with(
+                    'error',
+                    'Kartu peserta dapat diakses setelah dokumen daftar ulang diverifikasi admin.'
+                );
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | AMBIL REGISTRATION
+        |--------------------------------------------------------------------------
+        */
         $registrations = Registration::query()
             ->with([
                 'competition',
@@ -96,6 +203,10 @@ class ParticipantCardController extends Controller
             ])
             ->where('unit_id', $unitId)
             ->whereNotNull('registration_code')
+            ->whereIn('payment_status', [
+                'paid',
+                'verified',
+            ])
             ->orderBy('competition_id')
             ->orderBy('id')
             ->get();
@@ -115,13 +226,10 @@ class ParticipantCardController extends Controller
         );
     }
 
-
     /**
-     * Menampilkan satu kartu dalam halaman khusus
-     * untuk proses download PNG melalui browser.
-     *
-     * PNG dibuat pada sisi browser sehingga
-     * tidak membebani server Laravel.
+     * Menampilkan satu kartu peserta
+     * dalam halaman khusus untuk dibuat menjadi PNG
+     * melalui browser.
      */
     public function png(string $registrationCode)
     {
@@ -130,9 +238,37 @@ class ParticipantCardController extends Controller
         if (!$unitId) {
             return redirect()
                 ->route('login')
-                ->with('error', 'Silakan login terlebih dahulu.');
+                ->with(
+                    'error',
+                    'Silakan login terlebih dahulu.'
+                );
         }
 
+        /*
+        |--------------------------------------------------------------------------
+        | CEK DAFTAR ULANG
+        |--------------------------------------------------------------------------
+        */
+        $daftarUlangVerified = Upload::query()
+            ->where('unit_id', $unitId)
+            ->where('type', 'daftar_ulang')
+            ->where('status', 'verified')
+            ->exists();
+
+        if (!$daftarUlangVerified) {
+            return redirect()
+                ->route('profile.index')
+                ->with(
+                    'error',
+                    'Kartu peserta dapat diakses setelah dokumen daftar ulang diverifikasi admin.'
+                );
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | AMBIL REGISTRATION
+        |--------------------------------------------------------------------------
+        */
         $registration = Registration::query()
             ->with([
                 'competition',
@@ -140,7 +276,14 @@ class ParticipantCardController extends Controller
                 'participants',
             ])
             ->where('unit_id', $unitId)
-            ->where('registration_code', $registrationCode)
+            ->where(
+                'registration_code',
+                $registrationCode
+            )
+            ->whereIn('payment_status', [
+                'paid',
+                'verified',
+            ])
             ->firstOrFail();
 
         return view(

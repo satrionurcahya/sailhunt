@@ -202,8 +202,8 @@ Route::middleware(['check.unit'])->group(function () {
     // --------------------------------------------------------
     //
     // Tetap dipertahankan agar tombol lama yang ada di profil
-    // tidak rusak. Method downloadCard() nantinya diarahkan
-    // ke view kartu peserta yang baru.
+    // tidak rusak. Method downloadCard() diarahkan ke
+    // view kartu peserta yang baru.
     //
 
     Route::get('/card/download/{registration}', [ProfileController::class, 'downloadCard'])
@@ -314,26 +314,89 @@ Route::middleware(['check.unit', 'check.admin'])
         // SCORES
         // ----------------------------------------------------
 
+        /*
+        |--------------------------------------------------------------------------
+        | PILIH KOMPETISI
+        |--------------------------------------------------------------------------
+        |
+        | /admin/scores
+        |
+        */
+
         Route::get('/scores',
             [AdminScoreController::class, 'selectCompetition']
         )->name('scores.select');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | RANKING
+        |--------------------------------------------------------------------------
+        |
+        | HARUS diletakkan sebelum /scores/{competition}
+        | agar "ranking" tidak dibaca sebagai competition ID.
+        |
+        */
+
+        Route::get('/scores/ranking',
+            [AdminScoreController::class, 'ranking']
+        )->name('scores.ranking');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | DOWNLOAD TEMPLATE EXCEL
+        |--------------------------------------------------------------------------
+        |
+        | Contoh:
+        | /admin/scores/1/template
+        |
+        */
+
+        Route::get('/scores/{competition}/template',
+            [AdminScoreController::class, 'template']
+        )->name('scores.template');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | IMPORT EXCEL
+        |--------------------------------------------------------------------------
+        |
+        | Contoh:
+        | POST /admin/scores/1/import
+        |
+        */
+
+        Route::post('/scores/{competition}/import',
+            [AdminScoreController::class, 'import']
+        )->name('scores.import');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | INPUT NILAI MANUAL
+        |--------------------------------------------------------------------------
+        |
+        | Contoh:
+        | /admin/scores/1
+        |
+        */
 
         Route::get('/scores/{competition}',
             [AdminScoreController::class, 'input']
         )->name('scores.input');
 
+
+        /*
+        |--------------------------------------------------------------------------
+        | SIMPAN NILAI MANUAL
+        |--------------------------------------------------------------------------
+        */
+
         Route::post('/scores/{competition}',
             [AdminScoreController::class, 'store']
         )->name('scores.store');
-
-
-        // ----------------------------------------------------
-        // SCORES - RANKING
-        // ----------------------------------------------------
-
-        Route::get('/scores/ranking',
-            [AdminScoreController::class, 'ranking']
-        )->name('scores.ranking');
     });
 
 
