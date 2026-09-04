@@ -216,6 +216,8 @@ class RegisterController extends Controller
         |--------------------------------------------------------------------------
         */
 
+        $validated['password'] = \Illuminate\Support\Facades\Hash::make($validated['password']);
+
         $unit = Unit::create($validated);
 
         /*
