@@ -52,6 +52,7 @@
                     FAQ
                 </a>
 
+
                 {{-- ---------------------------------------------
                      DROPDOWN DOWNLOAD PUBLIK
                      --------------------------------------------- --}}
@@ -70,6 +71,7 @@
 
                     <div class="nav-dropdown-menu">
 
+                        {{-- Dokumen Publik --}}
                         <span class="dropdown-category">
                             📄 Dokumen Publik
                         </span>
@@ -79,8 +81,18 @@
                             Juklak & Juknis
                         </a>
 
+                        <a
+                            href="https://drive.google.com/drive/folders/1UBg9EhU_bgo2THztAnYfTby5IC2FmpUG?usp=sharing"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fas fa-folder-open"></i>
+                            Sumber Materi
+                        </a>
+
                         <div class="dropdown-divider"></div>
 
+                        {{-- Dokumen Peserta --}}
                         <span class="dropdown-category">
                             📑 Dokumen Peserta
                         </span>
@@ -128,6 +140,7 @@
                     Dashboard
                 </a>
 
+
                 {{-- ---------------------------------------------
                      LOMBA
                      --------------------------------------------- --}}
@@ -138,6 +151,7 @@
                     <i class="fas fa-trophy"></i>
                     Lomba
                 </a>
+
 
                 {{-- ---------------------------------------------
                      PROFIL
@@ -150,6 +164,7 @@
                     Profil
                 </a>
 
+
                 {{-- ---------------------------------------------
                      STATUS
                      --------------------------------------------- --}}
@@ -160,6 +175,7 @@
                     <i class="fas fa-clipboard-check"></i>
                     Status
                 </a>
+
 
                 {{-- ---------------------------------------------
                      DROPDOWN DOWNLOAD USER
@@ -187,6 +203,15 @@
                         <a href="{{ route('download.show', 'juklak-juknis') }}">
                             <i class="fas fa-book"></i>
                             Juklak & Juknis
+                        </a>
+
+                        <a
+                            href="https://drive.google.com/drive/folders/1UBg9EhU_bgo2THztAnYfTby5IC2FmpUG?usp=sharing"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fas fa-folder-open"></i>
+                            Sumber Materi
                         </a>
 
                         <div class="dropdown-divider"></div>
@@ -219,6 +244,7 @@
                     </div>
 
                 </div>
+
 
                 {{-- =================================================
                      ADMIN PANEL
@@ -265,6 +291,7 @@
                     </span>
 
                 </div>
+
 
                 {{-- Logout --}}
                 <a
